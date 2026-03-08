@@ -41,18 +41,18 @@ services:
       retries: 10
       start_period: 30s
 
-redis:
-  image: redis:7
-  container_name: redis
-  restart: always
-  ports:
-    - "6379:6379"
-  command: [ "redis-server", "--appendonly", "yes" ]
-  healthcheck:
-    test: [ "CMD", "redis-cli", "ping" ]
-    interval: 10s
-    timeout: 5s
-    retries: 5
+  redis:
+    image: redis:7
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    command: [ "redis-server", "--appendonly", "yes" ]
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   ########################################
   # DATABASES
